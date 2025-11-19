@@ -3,7 +3,7 @@ class ServicoController{
     constructor(){
         this.ServicoModel = new Servicos();
     }
-    listar(){
+    async listar(){
         return this.ServicoModel.listar();
     }
 

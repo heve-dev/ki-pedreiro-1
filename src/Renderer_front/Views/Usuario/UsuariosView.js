@@ -9,7 +9,7 @@ class UsuariosView{
         container += '</div>';
         return container;
     }
-    renderizarFomulario(){
+    renderizarFormulario(){
         return `<form id="form-usuario">
                     <label>Nome:</label>
                     <input type="text" id="nome"/>
