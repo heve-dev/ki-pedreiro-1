@@ -17,5 +17,11 @@ class UsuarioController{
         this.usuarioModel.adicionar(usuario);
         return true;
     }
+    async buscarUsuarioPorId(id){
+        if(!id){
+            return false
+        }
+        return this.usuarioModel.buscarPorId(id)
+    }
 }
 export default UsuarioController;

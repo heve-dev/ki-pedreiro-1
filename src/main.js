@@ -35,8 +35,8 @@ const createWindow = () => {
   }
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-};
+//   mainWindow.webContents.openDevTools();
+ };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -61,6 +61,9 @@ ipcMain.handle('dark-mode:toggle', () => {
   return nativeTheme.shouldUseDarkColors
 })
 
+ipcMain.handle("usuarios:buscarPorId", async (event, id) => {
+  return await controlerUsuario.buscarUsuarioPorId(id);
+})
 
 ipcMain.handle("usuarios:listar", async () => {
   return await controlerUsuario.listar();

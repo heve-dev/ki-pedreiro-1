@@ -16,7 +16,8 @@ contextBridge.exposeInMainWorld(
     // window.api.cadastrar(dados)
     'api',{
         listar: () => ipcRenderer.invoke('usuarios:listar'),
-        cadastrar: (usuario) => ipcRenderer.invoke('usuarios:cadastrar', usuario)
+        cadastrar: (usuario) => ipcRenderer.invoke('usuarios:cadastrar', usuario),
+        buscarporid: (id) => ipcRenderer.invoke("usuarios:buscarPorId", id)
 
     }
 )

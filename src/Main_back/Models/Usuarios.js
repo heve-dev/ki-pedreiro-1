@@ -1,8 +1,9 @@
 class Usuarios {
   constructor() {
     this.Usuarios = [
-      {"nome": "jose", "idade": 26},
-      {"nome": "maria", "idade": 35},
+      {"id":1, "nome": "jose", "idade": 26},
+      {"id":2, "nome": "maria", "idade": 35},
+      {"id":3, "nome": "ana", "idade": 32},
     ];
   }
   adicionar(usuario) {
@@ -11,6 +12,12 @@ class Usuarios {
   async listar() {
     return this.Usuarios;
   }
+
+  async buscarPorId(id){
+   const index = this.Usuarios.indexOf(id);
+   return this.Usuarios.find(index);
+}
+
   remover(usuario) {
     const index = this.Usuarios.indexOf(usuario);
     if (index !== -1) {
