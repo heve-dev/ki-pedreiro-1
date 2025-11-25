@@ -14,8 +14,7 @@ class Usuarios {
   }
 
   async buscarPorId(id){
-   const index = this.Usuarios.indexOf(id);
-   return this.Usuarios.find(index);
+   return this.Usuarios.find(usuario => usuario.id === Number(id));
 }
 
   remover(usuario) {

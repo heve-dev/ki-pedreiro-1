@@ -4,8 +4,8 @@ class UsuariosView{
     renderizarMenu(){
         return `<div class="container">
                     <ul>
-                      <li><a href="#/usuario_criar">Criar Usuários</a></li>
-                        <li><a href="#/usuario_listar">Listar Usuários</a></li>
+                      <li><a href="#usuario_criar">Criar Usuários</a></li>
+                        <li><a href="#usuario_listar">Listar Usuários</a></li>
                     </ul>
                 </div>`;
     }
@@ -31,7 +31,7 @@ class UsuariosView{
         container += `</table></div>
             <div id="myModal" class="modal">
               <div class="modal-content">
-                <span class="close">&times;</span>
+                <span class="close" id:"fechar">&times;</span>
                     <form id="form-usuario">
                         <label>Nome:</label>
                             <input type="text" id="nome"/>

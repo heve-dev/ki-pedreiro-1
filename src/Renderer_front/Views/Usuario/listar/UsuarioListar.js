@@ -14,15 +14,22 @@ class UsuarioListar{
     }
     adicionarEventos(){
         this.app.addEventListener("click", async (e)=>{
-            
+
         const idUsuario = e.target.getAttribute("data-id"); 
             if(e.target.classList.contains("editar-user")){
                 console.log("Editar usuário com ID:", idUsuario);
                 const usuario = await window.api.buscarPorId(idUsuario)
+                const nome = document.getElementById("nome")
+                const idade = document.getElementById("idade")
+                nome.value = usuario.nome
+                idade.value = usuario.idade
                 this.view.abrirModal();
             }
             if(e.target.classList.contains("excluir-user")){
                 console.log("Excluir usuário com ID:", idUsuario);
+            }
+            if(e.target.classList.contains("close")){
+                this.view.fecharModal();
             }
         })
     }
