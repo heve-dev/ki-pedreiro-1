@@ -73,6 +73,12 @@ ipcMain.handle("usuarios:cadastrar", async (event, usuario) => {
  const resultado = await controlerUsuario.cadastrar(usuario);
  return resultado;
 })
+
+ipcMain.handle("usuarios:editar", async (event, usuario) => {
+ const resultado = await controlerUsuario.atualizarUsuario(usuario);
+ return resultado;
+})
+
 });
 
 

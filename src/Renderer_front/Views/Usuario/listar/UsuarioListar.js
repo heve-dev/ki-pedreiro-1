@@ -1,7 +1,9 @@
 import UsuariosView from "../UsuariosView.js"
+import MensagemDeAlerta from "../../../Services/MensagemDeAlerta.js";
 class UsuarioListar{
     constructor(){
         this.view = new UsuariosView();
+        this.mensagem = new MensagemDeAlerta();
         this.app = document.getElementById("app"); //captura o clique na caixa principal
     }
     async renderizarLista(){
@@ -32,6 +34,26 @@ class UsuarioListar{
                 this.view.fecharModal();
             }
         })
+
+        const formulario = document.getElementById('form-usuario');
+        formulario.addEventListener('submit', async (event)=>{
+            event.preventDefault();
+            console.log(event);
+            const nome = document.getElementById('nome');
+            const idade = document.getElementById('idade');
+            const usuario = {
+                nome:nome.value,
+                idade: idade.value
+                }
+                const resultado = await window.api.editarUsuario(usuario);
+                if(resultado){
+                    nome.value='';
+                    idade.value='';
+                    this.mensagem.sucesso();
+                }else{
+                    this.mensagem.erro();
+        }
+      })
     }
 }
 export default UsuarioListar;
